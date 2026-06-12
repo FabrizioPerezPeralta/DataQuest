@@ -115,7 +115,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --severity-threshold=high --policy-path=.snyk
+          args: --severity-threshold=high
 
   docker:
     needs: [build, sonar]

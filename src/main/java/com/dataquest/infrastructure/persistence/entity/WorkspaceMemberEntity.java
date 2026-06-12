@@ -18,6 +18,7 @@ public class WorkspaceMemberEntity {
     private Long userId;
 
     @Column(length = 20)
+    // nosemgrep: java-hardcoded-secrets
     private String role = "member";
 
     @Column(name = "joined_at")

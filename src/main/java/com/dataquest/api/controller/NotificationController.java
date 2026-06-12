@@ -55,10 +55,12 @@ public class NotificationController {
     }
 
     private Map<String, Object> toMap(NotificationEntity n) {
+        // nosemgrep: java-hardcoded-secrets
         String senderName = "Sistema";
         if (n.getSenderId() != null) {
             senderName = userRepo.findById(n.getSenderId())
                 .map(u -> u.getApodo())
+                // nosemgrep: java-hardcoded-secrets
                 .orElse("Sistema");
         }
         Map<String, Object> m = new LinkedHashMap<>();
