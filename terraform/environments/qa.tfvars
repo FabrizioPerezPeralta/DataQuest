@@ -1,0 +1,10 @@
+environment         = "qa"
+aws_region          = "us-east-1"
+vpc_cidr            = "10.0.0.0/16"
+availability_zones  = ["us-east-1a"]
+instance_type       = "1024"
+db_instance_class   = "db.t3.small"
+db_multi_az         = false
+db_name             = "dataquest_qa"
+db_username         = "admin"
+db_password         = "ChangeMeQA123!"

@@ -1,0 +1,10 @@
+environment         = "dev"
+aws_region          = "us-east-1"
+vpc_cidr            = "10.0.0.0/16"
+availability_zones  = ["us-east-1a"]
+instance_type       = "512"
+db_instance_class   = "db.t3.micro"
+db_multi_az         = false
+db_name             = "dataquest_dev"
+db_username         = "admin"
+db_password         = "ChangeMeDev123!"
