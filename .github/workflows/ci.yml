@@ -73,6 +73,19 @@ jobs:
         env:
           SEMGREP_APP_TOKEN: ${{ secrets.SEMGREP_APP_TOKEN }}
 
+  snyk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
+      - name: Snyk dependency scan
+        run: snyk test --severity-threshold=high
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
   docker:
     needs: [build]
     runs-on: ubuntu-latest
