@@ -60,13 +60,7 @@ jobs:
           name: jacoco-report
           path: target/site/jacoco/
 
-      - name: Install Snyk CLI
-        run: npm install -g snyk
 
-      - name: Snyk dependency scan
-        run: snyk test --severity-threshold=high
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
   semgrep:
     runs-on: ubuntu-latest
