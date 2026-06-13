@@ -5,6 +5,8 @@ export interface User {
   correo: string;
   apodo: string;
   role: 'usuario' | 'administrador';
+  xp: number;
+  rango: string;
   medallas: string[];
   activo: boolean;
   fecha_registro: string;
@@ -43,13 +45,10 @@ export interface ValidationResponse {
     diagnosis: DidacticDiagnosis;
     is_fully_normalized: boolean;
     message: string;
-    decomposed_tables?: {
-      name: string;
-      attributes: string[];
-      primary_key: string[];
-    }[];
-    sql?: string;
-    mermaid?: string;
+  };
+  gamification?: {
+    xp_total: number;
+    rango_actual: string;
   };
 }
 
