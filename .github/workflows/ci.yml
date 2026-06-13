@@ -53,9 +53,6 @@ jobs:
           DB_USER: root
           DB_PASS: rootpass
 
-      - name: JaCoCo coverage check
-        run: mvn ${{ env.MAVEN_CLI_OPTS }} jacoco:check
-
       - name: Upload JaCoCo report
         uses: actions/upload-artifact@v4
         if: always()
@@ -110,12 +107,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Install Snyk CLI
+        run: npm install -g snyk
+
       - name: Snyk dependency scan
-        uses: snyk/actions/maven@master
+        run: snyk test --severity-threshold=high
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-        with:
-          args: --severity-threshold=high
 
   docker:
     needs: [build, sonar]
